@@ -1,4 +1,5 @@
 class Product:
+    """Класс для представления товара в интернет-магазине."""
 
     name: str
     description: str

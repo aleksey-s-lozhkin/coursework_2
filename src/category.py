@@ -1,4 +1,6 @@
 class Category:
+    """Класс для представления категории товаров в интернет-магазине."""
+
     name: str
     description: str
     products: list[str]
