@@ -1,7 +1,6 @@
-from src.category import Category
-
-
 def test_category_init(first_category, second_category):
+    """Тест на проверку корректности инициализации класса Category"""
+
     assert first_category.name == 'name1'
     assert first_category.description == 'description1'
     assert len(first_category.products) == 2
