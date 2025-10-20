@@ -1,11 +1,12 @@
-import pytest
 import json
 import os
 from unittest.mock import mock_open, patch
 
+import pytest
+
 from src.category import Category
 from src.product import Product
-from src.utils import read_json, create_objects_from_json
+from src.utils import create_objects_from_json, read_json
 
 
 def test_read_json_valid_file():
@@ -35,14 +36,7 @@ def test_create_objects():
         {
             "name": "Электроника",
             "description": "Техника",
-            "products": [
-                {
-                    "name": "Телефон",
-                    "description": "Смартфон",
-                    "price": 10000.0,
-                    "quantity": 5
-                }
-            ]
+            "products": [{"name": "Телефон", "description": "Смартфон", "price": 10000.0, "quantity": 5}],
         }
     ]
 
