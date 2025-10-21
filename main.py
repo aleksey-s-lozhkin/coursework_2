@@ -24,8 +24,10 @@ if __name__ == "__main__":
             "description": "256GB, Серый цвет, 200MP камера",
             "price": 180000.0,
             "quantity": 5,
-        }
+        },
+        [product1, product2, product3, product4] # Существующий список продуктов, для поиска дублей
     )
+
     print(new_product.name)
     print(new_product.description)
     print(new_product.price)

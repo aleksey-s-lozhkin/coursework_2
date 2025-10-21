@@ -24,5 +24,7 @@ class Category:
         return product_str
 
     def add_product(self, product: Product) -> None:
+        """Метод добавляет товар в категорию"""
+
         self.__products.append(product)
         Category.product_count += 1

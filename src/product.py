@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, List
 
 
 class Product:
@@ -15,9 +15,20 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, product: dict[str, Any]):
-        result = cls(product['name'], product['description'], product['price'], product['quantity'])
-        return result
+    def new_product(cls, product: dict[str, Any], products: List['Product'] = None) -> 'Product':
+        """Метод создает новый товар"""
+
+        if products is None:
+            products = []
+
+        for item in products:
+            if item.name == product['name']:
+                item.quantity += product['quantity']
+                if product['price'] > item.price:
+                    item.price = product['price']
+                return item
+
+        return cls(product['name'], product['description'], product['price'], product['quantity'])
 
     @property
     def price(self):
@@ -28,5 +39,9 @@ class Product:
         if new_price <= 0:
             print('Цена не должна быть нулевая или отрицательная')
             return
+
+        if new_price < self.__price:
+            if input('Новая цена меньше прошлой. Введите "y" - для подтверждения: ') != 'y':
+                return
 
         self.__price = new_price
