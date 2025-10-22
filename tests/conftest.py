@@ -26,10 +26,7 @@ def second_category():
 
 @pytest.fixture
 def sample_products():
-    return [
-        Product("name1", "description1", 100.0, 5),
-        Product("name2", "description2", 200.0, 3)
-    ]
+    return [Product("name1", "description1", 100.0, 5), Product("name2", "description2", 200.0, 3)]
 
 
 @pytest.fixture
