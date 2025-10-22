@@ -15,7 +15,7 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, product: dict[str, Any], products: List['Product'] = None) -> 'Product':
+    def new_product(cls, product: dict[str, Any], products: List['Product'] | None) -> 'Product':
         """Метод создает новый товар"""
 
         if products is None:
