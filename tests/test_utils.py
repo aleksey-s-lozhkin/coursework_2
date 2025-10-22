@@ -45,9 +45,9 @@ def test_create_objects():
     # Проверяем структуру
     assert len(categories) == 1
     assert isinstance(categories[0], Category)
-    assert isinstance(categories[0].products[0], Product)
+    assert isinstance(categories[0].products_in_list[0], Product)
 
     # Проверяем атрибуты
     assert categories[0].name == "Электроника"
-    assert categories[0].products[0].name == "Телефон"
-    assert categories[0].products[0].price == 10000.0
+    assert categories[0].products_in_list[0].name == "Телефон"
+    assert categories[0].products_in_list[0].price == 10000.0
