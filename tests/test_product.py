@@ -66,3 +66,11 @@ def test_new_product_update_existing_lower_price(first_product):
     assert updated_product is first_product
     assert updated_product.quantity == 6
     assert updated_product.price == 10.0
+
+
+def test_product_str(first_product):
+    assert str(first_product) == 'name1, 10.0 руб. Остаток: 1 шт.'
+
+
+def test_product_add(first_product, second_product):
+    assert first_product + second_product == 50.0
