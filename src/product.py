@@ -1,7 +1,9 @@
 from typing import Any, List
+from src.base_product import BaseProduct
+from src.consol_mixin import ConsolMixin
 
 
-class Product:
+class Product(BaseProduct, ConsolMixin):
     """Класс для представления товара в интернет-магазине."""
 
     name: str
@@ -13,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
