@@ -1,4 +1,5 @@
 from typing import Any, List
+
 from src.base_product import BaseProduct
 from src.consol_mixin import ConsolMixin
 

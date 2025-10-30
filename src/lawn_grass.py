@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class LawnGrass(Product):
     """Класс для представления товара 'Lawn Grass' в интернет-магазине."""
 
@@ -13,7 +14,6 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
-
     def __add__(self, other):
         if type(other) is LawnGrass:
             return self.price * self.quantity + other.price * other.quantity
@@ -22,14 +22,7 @@ class LawnGrass(Product):
 
 
 if __name__ == "__main__":
-    lawn_grass = LawnGrass(
-        "Газонная трава",
-        "Элитная трава для газона",
-        500.0,
-        20,
-        "Россия",
-        "7 дней",
-        "Зеленый")
+    lawn_grass = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
 
     print(lawn_grass.name)
     print(lawn_grass.description)
