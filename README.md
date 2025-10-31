@@ -51,11 +51,30 @@ python main.py
 
 ### Функциональность
 
+#### Абстрактный класс BaseCategory (`src/base_category`)
+- **`class BeseCategory`** - Абстрактный класс для классов: Category, Order
+
+#### Абстрактный класс BaseProduct (`src/base_product`)
+- **`class BaseProduct`** - Абстрактный класс для классов: Product, Smartphone, LawnGrass
+
+#### Класс ConsolMixin (`src/consol_mixin`)
+- **`class ConsolMixin`** - Класс-миксин для вывода в консоль информации о том, от какого класса и с какими 
+                            параметрами был создан объект
+
+#### Класс ProductIterator (`src/product_iterator`)
+- **`class ProductIterator`** - Вспомогательный класс, с помощью которого можно перебирать товары одной категории.
+
 #### Класс Category (`src/category`)
 - **`class Category`** - Класс для представления категории товаров в интернет-магазине.
 
 #### Класс Product (`src/product`) 
 - **`class Product`** - Класс для представления товара в интернет-магазине.
+
+#### Класс Smartphone (`src/smartphone`) 
+- **`class Smartphone`** - Класс для представления товара 'Smartphone' в интернет-магазине.
+
+#### Класс LawnGrass (`src/lawn_grass`) 
+- **`class LawnGrass`** - Класс для представления товара 'Lawn Grass' в интернет-магазине.
 
 #### Утилиты (`src/utils`)
 - **`read_json(path: str)`** - Функция для чтения json файла
@@ -66,8 +85,14 @@ python main.py
 ```
 coursework_1/
 ├── src/
+│   ├── base_category/
+│   ├── base_product/
+│   ├── consol_mixin/
+│   ├── product_iterator/
 │   ├── category/
 │   ├── product/
+│   ├── smartphone/
+│   ├── lawn_grass/
 │   └── utils/ 
 ├── data/
 │   └── product.json

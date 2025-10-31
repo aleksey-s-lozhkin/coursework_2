@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_smartphone_init(smartphone1):
     """Тест на проверку корректности инициализации класса Smartphone"""
 

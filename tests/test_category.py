@@ -20,7 +20,7 @@ def test_category_init(first_category, second_category):
 def test_category_products_property(category_with_products, sample_products):
     """Проверка корректности форматирования строки с товарами"""
 
-    products_str = category_with_products.products
+    products_str = category_with_products.products_list
     expected_lines = [
         f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in sample_products
     ]

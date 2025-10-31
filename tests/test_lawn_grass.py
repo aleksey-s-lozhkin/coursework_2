@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_lawn_grass_init(lawn_grass1):
     """Тест на проверку корректности инициализации класса LawnGrass"""
 

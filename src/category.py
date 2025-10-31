@@ -1,7 +1,8 @@
+from src.base_category import BaseCategory
 from src.product import Product
 
 
-class Category:
+class Category(BaseCategory):
     """Класс для представления категории товаров в интернет-магазине."""
 
     name: str
@@ -17,14 +18,18 @@ class Category:
         Category.product_count += len(products)
 
     def __str__(self):
-        return f'{self.name}, количество продуктов: {sum(product.quantity for product in self.products_in_list)} шт.'
+        return f'{self.name}, количество продуктов: {self.total_products} шт.'
 
     @property
-    def products(self):
+    def products_list(self) -> str:
         product_str = ''
         for product in self.__products:
             product_str += f'{str(product)}\n'
         return product_str
+
+    @property
+    def total_products(self) -> int:
+        return sum(product.quantity for product in self.__products)
 
     def add_product(self, product: Product) -> None:
         """Метод добавляет товар в категорию"""

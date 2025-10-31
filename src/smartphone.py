@@ -16,7 +16,6 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-
     def __add__(self, other):
         if type(other) is Smartphone:
             return self.price * self.quantity + other.price * other.quantity
@@ -26,14 +25,7 @@ class Smartphone(Product):
 
 if __name__ == "__main__":
     smartphone = Smartphone(
-        "Samsung Galaxy S23 Ultra",
-        "256GB, Серый цвет, 200MP камера",
-        180000.0,
-        5,
-        95.5,
-        "S23 Ultra",
-        256,
-        "Серый"
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
     )
 
     print(smartphone.name)
