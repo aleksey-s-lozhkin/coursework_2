@@ -1,5 +1,7 @@
 import pytest
 
+from src.category import Category
+from src.product import Product
 from src.product_iterator import ProductIterator
 
 
@@ -48,3 +50,19 @@ def test_product_iterator(product_iterator):
 
     with pytest.raises(StopIteration):
         next(product_iterator)
+
+
+def test_middle_price():
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 10.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 10.0, 8)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 10.0, 14)
+
+    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+
+    assert category1.middle_price() == 10.0
+
+
+def test_middle_price_zero_product():
+    category2 = Category("Смартфоны", "Категория смартфонов", [])
+
+    assert category2.middle_price() == 0

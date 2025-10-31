@@ -78,6 +78,6 @@ def lawn_grass2():
 
 @pytest.fixture
 def order_with_products():
-    # Создаем один продукт, а не список
+
     product = Product("name1", "description1", 200.0, 5)
     return Order(product, 5)

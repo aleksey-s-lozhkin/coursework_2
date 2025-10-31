@@ -15,7 +15,10 @@ class Product(BaseProduct, ConsolMixin):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity > 0:
+            self.quantity = quantity
+        else:
+            raise ValueError('Товар с нулевым количеством не может быть добавлен')
         super().__init__()
 
     def __str__(self):
@@ -58,3 +61,7 @@ class Product(BaseProduct, ConsolMixin):
                 return
 
         self.__price = new_price
+
+
+if __name__ == '__main__':
+    product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)
