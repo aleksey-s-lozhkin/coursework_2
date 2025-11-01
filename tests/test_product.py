@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -74,3 +76,8 @@ def test_product_str(first_product):
 
 def test_product_add(first_product, second_product):
     assert first_product + second_product == 50.0
+
+
+def test_init_product_with_zero_quantity():
+    with pytest.raises(ValueError, match='Товар с нулевым количеством не может быть добавлен'):
+        prod = Product('name1', 'description1', 10.0, 0)

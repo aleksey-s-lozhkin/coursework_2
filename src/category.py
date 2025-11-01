@@ -1,4 +1,5 @@
 from src.base_category import BaseCategory
+from src.exceptions import ZerroQuantity
 from src.product import Product
 
 
@@ -35,11 +36,42 @@ class Category(BaseCategory):
         """Метод добавляет товар в категорию"""
 
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity == 0:
+                    raise ZerroQuantity('Нельзя добавить продукт с нулевым количеством товара')
+            except ZerroQuantity as err:
+                print(str(err))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print('Товар успешно добавлен')
+            finally:
+                print('Обработка добавления товара завершена')
         else:
             raise TypeError
 
     @property
     def products_in_list(self):
         return self.__products
+
+    def middle_price(self):
+        """Метод, который подсчитывает средний ценник всех товаров"""
+
+        try:
+            return round(sum([item.price for item in self.__products]) / len(self.__products), 2)
+        except ZeroDivisionError:
+            return 0
+
+
+if __name__ == '__main__':
+    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+
+    print(category1.middle_price())
+
+    category2 = Category("Смартфоны", "Категория смартфонов", [])
+
+    print(category2.middle_price())
